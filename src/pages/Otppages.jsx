@@ -28,11 +28,11 @@ export default function Otppage() {
           <p className="text-[#f4f6f8] font-bold tracking-wide mb-10 flex justify-center">Check Your email for Code</p>
           <div className="flex justify-center">
           <SubOptBox reference={ref1} onDone={() => ref2.current.focus()} />
-          <SubOptBox reference={ref2} onDone={() => ref3.current.focus()}/>
-          <SubOptBox reference={ref3} onDone={() => ref4.current.focus()}/>
-          <SubOptBox reference={ref4} onDone={() => ref5.current.focus()}/>
-          <SubOptBox reference={ref5} onDone={() => ref6.current.focus()}/>
-          <SubOptBox reference={ref6} setDisable={setDisable} onDone={ () => setDisable(false)}/>
+          <SubOptBox reference={ref2} onDone={() => ref3.current.focus()} />
+          <SubOptBox reference={ref3} onDone={() => ref4.current.focus()} />
+          <SubOptBox reference={ref4} onDone={() => ref5.current.focus()} />
+          <SubOptBox reference={ref5} onDone={() => ref6.current.focus()} />
+          <SubOptBox reference={ref6} setDisable={setDisable} onDone={ () => setDisable(false)} />
           </div>
           <div className="flex justify-center">
             <Button disabled={disabled}/>
@@ -43,17 +43,22 @@ export default function Otppage() {
 }
 
 
-function SubOptBox({onDone, reference}){
+function SubOptBox({onDone, reference, goBack}){
 
     return (
         <div className="flex justify-center">
-          <input ref={reference}
+          <input ref={reference} onKeyUp={(e) => {
+            if(e.key == 'Backspace'){
+              // set focus to previous logic
+            }
+            console.log(e.key)
+          }}
           onChange={
             (e) => {
-              console.log("hi there")
-              onDone()}
+              onDone()
+              }
             } 
-            className="bg-[#18406b] font-sans rounded-md py-2 px-2 mb-5 w-6 text-sm text-white m-1 outline-none"/>
+            className="bg-[#18406b] font-sans rounded-md py-2 px-2 mb-5 w-7 text-sm text-white m-1 outline-none"/>
         </div>
     )
 }
