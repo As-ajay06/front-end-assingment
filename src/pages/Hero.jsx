@@ -6,6 +6,10 @@ import Profile from "../components/Profile"
 import GreetingCard from "../components/GreetingCard"
 import TaskCard from "../components/TaskCard"
 import TitleCard from "../components/TitleCard"
+import Activity from "../components/Activity"
+import SideBar from "../components/SideBar"
+
+
 const Hero = () => {
 
     const [visible , setVisible ] = useState(true)
@@ -19,16 +23,6 @@ const Hero = () => {
 export default Hero
 
 
-function SideBar({visible, setVisible}) {
-
-    function Toggle() {
-        setVisible(prev => !prev)
-    }
-
-    return <div className={`${visible? "w-0 md:w-62 h-screen bg-green-300": "w-8 h-screen bg-green-300" }`}>
-        <button className={`${visible? "border-2 rounded-sm bg-blue-700": "bg-white"}`} onClick={Toggle}>click me</button>
-    </div>
-}
 
 function MainContent() {
     return <div className="w-full">
@@ -55,8 +49,8 @@ function MainContent() {
                 <TaskCard time={"4:00"} title={"UX webinar"}/>
             </div>
         </div>
-        <div className="md:col-span-3 col-span-12 h-64 bg-black shadow-lg rounded-2xl ">
-
+        <div className="md:col-span-3 col-span-12 h-56 bg-white shadow-lg rounded-2xl">
+                <Activity />
         </div>
         </div>
     </div>

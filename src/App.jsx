@@ -3,7 +3,6 @@ import Button from "./components/Button"
 import Otppage from "./pages/Otppages"
 import Emailpage from "./pages/Emailpage"
 import Input from "./components/Input"
-import { SideBar } from "./pages/SideBar"
 import Hero from './pages/Hero' 
 import Photos from "./components/Photos"
 
